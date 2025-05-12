@@ -24,7 +24,7 @@ echo "
     </style>
 </head>
 <body>
-    <h1>Welcome to Talent Workforce API</h1>
+    <h1>Welcome  Talent Workforce API</h1>
 </body>
 </html>
 ";
