@@ -3,7 +3,7 @@ name: Deploy to Hostinger via SSH (Password Auth)
 on:
   push:
     branches:
-      - develop  # ✅ Trigger only on 'develop' branch
+      - develop
 
 jobs:
   deploy:
