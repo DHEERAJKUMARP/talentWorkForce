@@ -18,7 +18,7 @@ use App\Http\Controllers\Api\Auth\RegisterController;
  */
  
 Route::prefix('auth')->group(function () {
-    Route::post('/register', [RegisterController::class, 'register']);
+    Route::post('/candidate-register', [RegisterController::class, 'CandidateRegister']);
 });
 Route::get('/sample', function () {
     return response()->json([

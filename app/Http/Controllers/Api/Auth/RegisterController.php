@@ -18,7 +18,7 @@ class RegisterController extends Controller
 {
     
 
-    public function register(Request $request)
+    public function CandidateRegister(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'first_name' => 'required|max:80',
@@ -70,6 +70,7 @@ class RegisterController extends Controller
             );
 
             return response()->json([
+                'status' => 'success',
                 'message' => 'User registered and logged in successfully. Verification email sent.',
                 'user' => [
                     'id' => $user->id,
@@ -80,12 +81,14 @@ class RegisterController extends Controller
         } catch (QueryException $e) {
             Log::channel('api')->error('Registration failed', ['error' => $e->getMessage()]);
             return response()->json([
+                'status'=> 'error',
                 'message' => 'Registration failed: Email already exists or data conflict.',
                 'error' => $e->getMessage(),
             ], 409);
         } catch (\Exception $e) {
             Log::channel('api')->error('Registration failed', ['error' => $e->getMessage()]);
             return response()->json([
+                'status'=> 'error',
                 'message' => 'Registration failed: Unexpected error occurred.',
                 'error' => $e->getMessage(),
             ], 500);
