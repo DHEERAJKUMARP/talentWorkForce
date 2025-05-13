@@ -1,6 +1,10 @@
 <?php
 
+
+use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Api\Auth\RegisterController;
+
 
 /*
   |--------------------------------------------------------------------------
@@ -13,7 +17,9 @@ use Illuminate\Http\Request;
   |
  */
  
- 
+Route::prefix('auth')->group(function () {
+    Route::post('/register', [RegisterController::class, 'register']);
+});
 Route::get('/sample', function () {
     return response()->json([
         'message' => 'Hello from Laravel API!',

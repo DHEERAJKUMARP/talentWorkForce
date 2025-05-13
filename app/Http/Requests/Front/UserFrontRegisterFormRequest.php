@@ -4,6 +4,7 @@ namespace App\Http\Requests\Front;
 
 use Auth;
 use App\Http\Requests\Request;
+use Illuminate\Support\Facades\Log;
 
 class UserFrontRegisterFormRequest extends Request
 {
@@ -25,7 +26,10 @@ class UserFrontRegisterFormRequest extends Request
      */
     public function rules()
     {
-
+        Log::info('UserFrontRegisterFormRequest');
+        Log::info('all: ' . json_encode($this->all()));
+        
+        
         return [
             'first_name' => 'required|max:80',
             'middle_name' => 'max:80',

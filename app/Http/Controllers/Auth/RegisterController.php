@@ -13,6 +13,7 @@ use Jrean\UserVerification\Facades\UserVerification;
 use App\Http\Requests\Front\UserFrontRegisterFormRequest;
 use Illuminate\Auth\Events\Registered;
 use App\Events\UserRegistered;
+use Illuminate\Support\Facades\Log;
 
 class RegisterController extends Controller
 {
@@ -49,6 +50,7 @@ use RegistersUsers;
 
     public function register(UserFrontRegisterFormRequest $request)
     {
+        
         $user = new User();
         $user->first_name = $request->input('first_name');
         // $user->middle_name = $request->input('middle_name');
